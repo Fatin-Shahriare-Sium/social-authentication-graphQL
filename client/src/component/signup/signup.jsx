@@ -3,9 +3,11 @@ import './signup.css'
 import googleSVG from '../../assets/google.svg'
 import GoogleLogin, { useGoogleLogin } from 'react-google-login'
 import useSignup from '../hooks/useSignup'
+import createAccountSVG from '../../assets/create-account.svg'
+import Alert from '../alert/alert'
 const Signup = () => {
 
-    let { signIn } = useSignup()
+    let { signIn, handleCustomSignup, error } = useSignup()
     return (
         <div className='signup'>
 
@@ -15,8 +17,10 @@ const Signup = () => {
                 <div className="signup__form">
 
                     <div className="singup__form-wrapper">
+
                         <p style={{ fontSize: '2rem', fontWeight: '700', textDecoration: 'underline' }}>Create Account</p>
-                        <form style={{ marginTop: '7%' }}>
+                        {error && <Alert text={error.msg} color={error.color} />}
+                        <form onSubmit={(event) => handleCustomSignup(event)} style={{ marginTop: '7%' }}>
                             <div className="single-input-form">
                                 <p>Name</p>
                                 <div className='single-input-form__input'>
@@ -42,7 +46,7 @@ const Signup = () => {
                                 </div>
                             </div>
                             <div className='signup__btn'>
-                                <button>Login</button>
+                                <button type="submit">Login</button>
                             </div>
                         </form>
                         <div className='signup__form-bottom'>
@@ -64,7 +68,9 @@ const Signup = () => {
 
                 </div>
                 <div className="signup__img">
-
+                    <div className='signup__img-wrapper'>
+                        <img src={createAccountSVG} alt="" />
+                    </div>
                 </div>
             </div>
 

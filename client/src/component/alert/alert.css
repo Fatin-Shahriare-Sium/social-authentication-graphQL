@@ -1,0 +1,13 @@
+.alert{
+    padding: 5px;
+}
+.alert-success{
+    background-color: #9af894!important;
+}
+
+.alert-textx{
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: black;
+    text-align: center;
+}

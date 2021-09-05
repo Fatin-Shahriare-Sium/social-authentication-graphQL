@@ -4,17 +4,15 @@
 }
 
 .signup__form,.signup__img{
-
-    flex: .5;
-}
-
-.signup__form{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    flex: .5;
 
 }
+
+
 .singup__form-wrapper{
     width: 63%;
 
@@ -58,4 +56,8 @@
     margin-bottom: 0px;
     margin-left: 7%;
     font-weight: 500;
+}
+
+.signup__img-wrapper img{
+    width: 90%;
 }
