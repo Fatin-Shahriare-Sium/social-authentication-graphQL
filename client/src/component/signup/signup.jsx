@@ -1,16 +1,19 @@
 import React from 'react'
 import './signup.css'
-import googleSVG from '../../assets/google.svg'
-import GoogleLogin, { useGoogleLogin } from 'react-google-login'
 import useSignup from '../hooks/useSignup'
 import createAccountSVG from '../../assets/create-account.svg'
 import Alert from '../alert/alert'
-const Signup = () => {
 
+// import FacebookLogin from 'react-facebook-login';
+import GoogleLoginx from '../utils/googleLogin'
+import FacebookLoginx from '../utils/facebookLogin'
+const Signup = () => {
+    const responseFacebook = (response) => {
+        console.log(response);
+    }
     let { signIn, handleCustomSignup, error } = useSignup()
     return (
         <div className='signup'>
-
 
             <div className="signup__wrapper">
 
@@ -51,20 +54,24 @@ const Signup = () => {
                         </form>
                         <div className='signup__form-bottom'>
                             <p style={{ textAlign: 'center', fontSize: '1.2rem' }}>or</p>
-
-                            <div onClick={signIn} className='signup__bottom-btn'>
-                                <img style={{ width: '23px' }} src={googleSVG} alt="" />
-                                <p>Signup with Google</p>
-                            </div>
+                            <GoogleLoginx btnText={'Signup with Google'} />
+                            <FacebookLoginx btnText='Signup with Facebook' />
 
 
-                            <div className='signup__bottom-btn'>
-                                <img style={{ width: '23px' }} src={googleSVG} alt="" />
-                                <p>Signup with Facebook</p>
-                            </div>
+                            {/* <GitHubLogin clientId="47fa771c91e41cbf6c7c"
+                                onSuccess={(res) => { console.log(res) }}
+                                redirectUri='http://localhost:3000/login/oauth2/code/github'
+                                scopes={'user:email,repo'}
+                                onFailure={(x) => { console.log('x', x) }} />
+                            <FacebookLogin
+                                appId="1167881493621700"
+                                autoLoad={true}
+                                fields="name,email,picture"
+                                callback={responseFacebook} />, */}
+
                         </div>
                     </div>
-
+                    {/* */}
 
                 </div>
                 <div className="signup__img">

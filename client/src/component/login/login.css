@@ -1,0 +1,38 @@
+.login{
+    height: 100vh;
+}
+
+.login__wrapper{
+    display: flex;
+    height: 100vh;
+}
+
+.login__form,.login__img{
+    flex: .5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login__form-wrapper{
+    width: 70%;
+  
+  
+}
+
+.login__btn {
+    width: 100%;
+    margin-top: 3%;
+}
+
+.login__btn button{
+    padding: 5px;
+    border: none;
+    outline: none;
+    background-color: #000;
+    color: #fff;
+    width: inherit;
+    height: 5vh;
+    font-size: 1.3rem;
+   
+}

@@ -11,6 +11,7 @@ mutation ($name:String,$email:String,$password:String,$img:String){
         token,
         text,
         color
+        success
     }
 }
 
@@ -50,12 +51,32 @@ const useSignup = () => {
         let password = e.target[2].value
         let conPass = e.target[3].value
 
+        if (conPass !== password) {
+            return setError({
+                msg: 'Password is not matching',
+                color: "warning"
+            })
+        }
+
         if (name && email && password && conPass && conPass == password) {
             let gmailRegex = /([a-zA-Z0-9]+)([\.{1}])?([a-zA-Z0-9]+)\@gmail([\.])com/g
+            let isGmail = gmailRegex.test(email)
+
+            if (!isGmail) {
+                return setError({
+                    msg: 'Please,provide gmail address',
+                    color: "warning"
+                })
+            }
+            setError({
+                msg: 'loading ...',
+                color: 'info'
+            })
             let responses = await createUser({ variables: { name, email, password: '', img: '' } })
-            console.log(responses);
-            if (responses.success) {
-                history.pushState('/dasboard')
+            console.log(responses.data.createUser.success);
+            if (responses.data.createUser.success) {
+                localStorage.setItem('__tokenx', responses.data.createUser.token)
+                history.push('/dasboard')
             }
         } else {
             return setError({
