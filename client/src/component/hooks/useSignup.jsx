@@ -23,6 +23,7 @@ const useSignup = () => {
     let [error, setError] = useState()
 
     async function success(x) {
+        console.log('x', x);
         let { name, email, imageUrl } = x.profileObj
 
         let responses = await createUser({ variables: { name, email, password: '', img: imageUrl } })
@@ -35,7 +36,6 @@ const useSignup = () => {
     const { signIn, loaded } = useGoogleLogin({
         onSuccess: success,
         clientId: '767133034347-bfrqop8lch9i8rth55t8abk4m0p1lk71.apps.googleusercontent.com',
-        isSignedIn: false,
         onFailure: (x) => {
             console.log(x);
         }

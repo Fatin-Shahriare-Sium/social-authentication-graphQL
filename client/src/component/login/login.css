@@ -36,3 +36,19 @@
     font-size: 1.3rem;
    
 }
+
+.login__img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.login__img-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.login__img-wrapper img{
+    width: 70%;
+    margin: auto;
+}
