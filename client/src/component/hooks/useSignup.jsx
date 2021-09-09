@@ -33,19 +33,10 @@ const useSignup = () => {
         }
     }
 
-    const { signIn, loaded } = useGoogleLogin({
-        onSuccess: success,
-        clientId: '767133034347-bfrqop8lch9i8rth55t8abk4m0p1lk71.apps.googleusercontent.com',
-        onFailure: (x) => {
-            console.log(x);
-        }
-
-
-    })
 
     async function handleCustomSignup(e) {
         e.preventDefault()
-        console.log(e);
+        console.log(e.target[2].value);
         let name = e.target[0].value
         let email = e.target[1].value
         let password = e.target[2].value
@@ -72,12 +63,18 @@ const useSignup = () => {
                 msg: 'loading ...',
                 color: 'info'
             })
-            let responses = await createUser({ variables: { name, email, password: '', img: '' } })
-            console.log(responses.data.createUser.success);
+            let responses = await createUser({ variables: { name, email, password, img: '' } })
+            console.log(responses.data);
             if (responses.data.createUser.success) {
+
                 localStorage.setItem('__tokenx', responses.data.createUser.token)
                 history.push('/dasboard')
+
             }
+            return setError({
+                msg: responses.data.createUser.text,
+                color: responses.data.createUser.color
+            })
         } else {
             return setError({
                 msg: 'Fill in the gaps',
@@ -89,7 +86,7 @@ const useSignup = () => {
 
 
 
-    return { signIn, handleCustomSignup, error }
+    return { signup: success, handleCustomSignup, error }
 }
 
 export default useSignup

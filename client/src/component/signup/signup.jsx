@@ -49,12 +49,12 @@ const Signup = () => {
                                 </div>
                             </div>
                             <div className='signup__btn'>
-                                <button type="submit">Login</button>
+                                <button type="submit">Signup</button>
                             </div>
                         </form>
                         <div className='signup__form-bottom'>
                             <p style={{ textAlign: 'center', fontSize: '1.2rem' }}>or</p>
-                            <GoogleLoginx btnText={'Signup with Google'} />
+                            <GoogleLoginx type='signup' btnText={'Signup with Google'} />
                             <FacebookLoginx btnText='Signup with Facebook' />
 
 
