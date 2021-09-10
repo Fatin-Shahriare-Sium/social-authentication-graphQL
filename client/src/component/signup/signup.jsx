@@ -7,11 +7,10 @@ import Alert from '../alert/alert'
 // import FacebookLogin from 'react-facebook-login';
 import GoogleLoginx from '../utils/googleLogin'
 import FacebookLoginx from '../utils/facebookLogin'
+import { Link } from 'react-router-dom'
 const Signup = () => {
-    const responseFacebook = (response) => {
-        console.log(response);
-    }
-    let { signIn, handleCustomSignup, error } = useSignup()
+
+    let { handleCustomSignup, error } = useSignup()
     return (
         <div className='signup'>
 
@@ -70,6 +69,9 @@ const Signup = () => {
                                 callback={responseFacebook} />, */}
 
                         </div>
+                        <p style={{ fontSize: '1.5rem', fontWeight: '700', textAlign: 'center' }}>Already have an account ? ,{<Link to='/login'>
+                            <span>Login</span>
+                        </Link>}</p>
                     </div>
                     {/* */}
 

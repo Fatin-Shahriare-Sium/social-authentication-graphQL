@@ -4,7 +4,7 @@ import googleSVG from '../../assets/google.svg'
 import GoogleLogin from 'react-google-login'
 import useLogin from '../hooks/useLogin'
 const GoogleLoginx = ({ btnText, type }) => {
-    let { signup } = useSignup()
+    let { googleSignup } = useSignup()
     let { login } = useLogin()
     return (
         < GoogleLogin
@@ -18,9 +18,9 @@ const GoogleLoginx = ({ btnText, type }) => {
                 </div>
             )}
             buttonText="Login"
-            onSuccess={type == 'signup' ? signup : login}
+            onSuccess={type == 'signup' ? googleSignup : login}
             cookiePolicy={'single_host_origin'}
-            redirectUri='http://localhost:3000/login'
+
         />
 
     )

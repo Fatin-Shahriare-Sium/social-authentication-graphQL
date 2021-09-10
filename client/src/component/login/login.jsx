@@ -5,6 +5,7 @@ import './login.css'
 import loginSvg from '../../assets/login.svg'
 import useLogin from '../hooks/useLogin';
 import Alert from '../alert/alert';
+import { Link } from 'react-router-dom'
 const Login = () => {
     let { handleLogin, error } = useLogin()
     return (
@@ -36,6 +37,9 @@ const Login = () => {
                             <GoogleLoginx type='login' btnText='Login with Google' />
                             <FacebookLoginx btnText='Login with Facebook' />
                         </div>
+                        <p style={{ fontSize: '1.5rem', fontWeight: '700', textAlign: 'center' }}>Don't have an account ? ,{<Link to='/signup'>
+                            <span>Signup</span>
+                        </Link>}</p>
                     </div>
                 </div>
                 <div className="login__img">

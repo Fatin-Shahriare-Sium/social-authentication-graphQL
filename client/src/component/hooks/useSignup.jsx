@@ -30,6 +30,7 @@ const useSignup = () => {
         console.log(responses);
         if (responses.success) {
             history.pushState('/dasboard')
+            localStorage.setItem('__tokenx', responses.data.createUser.token)
         }
     }
 
@@ -86,7 +87,7 @@ const useSignup = () => {
 
 
 
-    return { signup: success, handleCustomSignup, error }
+    return { googleSignup: success, handleCustomSignup, error }
 }
 
 export default useSignup
