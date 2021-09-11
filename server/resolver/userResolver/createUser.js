@@ -27,7 +27,7 @@ let createUserMutationResolver = async (parent, args, ctx) => {
         token,
         text: 'Successfully,created an account',
         color: 'succcess',
-        success: 'true'
+        success: true
     }
 
 }

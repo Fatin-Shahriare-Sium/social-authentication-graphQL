@@ -3,7 +3,8 @@ let { Schema, model } = require('mongoose')
 let userSchema = new Schema({
     name: String,
     email: String,
-    password: String
+    password: String,
+    img: String
 })
 
 
