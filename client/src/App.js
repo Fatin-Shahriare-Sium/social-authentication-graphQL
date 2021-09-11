@@ -1,7 +1,7 @@
 
 import React, { Suspense, useEffect } from 'react'
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client'
-import { BrowserRouter, Switch, Route, useHistory } from 'react-router-dom'
+import { BrowserRouter, Switch, Route, useHistory, Redirect } from 'react-router-dom'
 import Signup from './component/signup/signup'
 import Dasboard from './component/dasboard/dasboard'
 import Login from './component/login/login'
@@ -23,9 +23,12 @@ function App() {
 
 
   useEffect(() => {
+    <Redirect to='/dasboard' />
     if (localStorage.getItem('__tokenx')) {
-      // window.location.href = '/dasboard'
-      return history.push('/dasboard')
+
+      history.push('/dasboard')
+      // return window.location.reload()
+
 
     }
   }, [])
