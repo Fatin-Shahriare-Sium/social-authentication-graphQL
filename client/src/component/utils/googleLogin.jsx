@@ -6,9 +6,10 @@ import useLogin from '../hooks/useLogin'
 const GoogleLoginx = ({ btnText, type }) => {
     let { googleSignup } = useSignup()
     let { login } = useLogin()
+    console.log('process.env.REACT_APP_GOOGLE_CLIENT_ID', process.env.REACT_APP_GOOGLE_CLIENT_ID);
     return (
         < GoogleLogin
-            clientId="767133034347-bfrqop8lch9i8rth55t8abk4m0p1lk71.apps.googleusercontent.com"
+            clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
             render={renderProps => (
                 <div>
                     <div onClick={renderProps.onClick} className='signup__bottom-btn'>

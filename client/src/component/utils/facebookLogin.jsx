@@ -7,7 +7,7 @@ const FacebookLoginx = ({ btnText }) => {
     }
     return (
         <FacebookLogin
-            appId="1167881493621700"
+            appId={process.env.REACT_APP_FACEBOOK_CLIENT_ID}
             callback={responseFacebook}
             render={renderProps => {
                 return (

@@ -22,16 +22,16 @@ function App() {
   })
 
 
-  useEffect(() => {
-    <Redirect to='/dasboard' />
-    if (localStorage.getItem('__tokenx')) {
+  // useEffect(() => {
+  //   <Redirect to='/dasboard' />
+  //   if (localStorage.getItem('__tokenx')) {
 
-      history.push('/dasboard')
-      // return window.location.reload()
+  //     history.push('/dasboard')
+  //     // return window.location.reload()
 
 
-    }
-  }, [])
+  //   }
+  // }, [])
 
   return (
     <BrowserRouter>
